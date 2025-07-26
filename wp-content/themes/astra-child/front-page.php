@@ -12,7 +12,9 @@ get_header(); ?>
     <div class="container-custom">
         <div class="hero-content">
             <h1 class="hero-title">Building India's Future Infrastructure</h1>
-            <p class="hero-subtitle">Aarna Construction delivers excellence in civil, industrial, commercial, and residential construction with innovation, transparency, and craftsmanship.</p>
+            <p class="hero-subtitle">Aarna Construction is a forward-thinking infrastructure development firm committed
+                to redefining India's urban and industrial landscapes through innovation, transparency, and
+                craftsmanship.</p>
             <div class="hero-buttons">
                 <a href="<?php echo home_url('/services'); ?>" class="btn btn-primary">Our Services</a>
                 <a href="<?php echo home_url('/contact'); ?>" class="btn btn-outline-white">Get Quote</a>
@@ -42,8 +44,11 @@ get_header(); ?>
             <div class="col-md-6">
                 <div class="about-content">
                     <h2 class="section-title text-left">About Aarna Construction</h2>
-                    <p class="lead">Forward-thinking infrastructure development firm committed to redefining India's urban and industrial landscapes.</p>
-                    <p>We specialize in delivering comprehensive solutions across civil, industrial, commercial, and residential construction. Guided by the principles of innovation, transparency, and craftsmanship, we transform ideas into enduring structures.</p>
+                    <p class="lead">Forward-thinking infrastructure development firm committed to redefining India's
+                        urban and industrial landscapes.</p>
+                    <p>We specialize in delivering comprehensive solutions across civil, industrial, commercial, and
+                        residential construction. Guided by the principles of innovation, transparency, and
+                        craftsmanship, we transform ideas into enduring structures.</p>
                     <div class="about-features">
                         <div class="feature-item">
                             <i class="fas fa-check-circle"></i>
@@ -67,7 +72,8 @@ get_header(); ?>
             </div>
             <div class="col-md-6">
                 <div class="about-image">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/about-construction.jpg" alt="Aarna Construction Team" class="img-responsive">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/about-construction.jpg"
+                        alt="Aarna Construction Team" class="img-responsive">
                 </div>
             </div>
         </div>
@@ -79,7 +85,8 @@ get_header(); ?>
     <div class="container-custom">
         <div class="text-center">
             <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive construction solutions tailored for modern infrastructure needs</p>
+            <p class="section-subtitle">Comprehensive construction solutions tailored for modern infrastructure needs
+            </p>
         </div>
 
         <div class="services-grid">
@@ -88,8 +95,10 @@ get_header(); ?>
                     <i class="fas fa-drafting-compass"></i>
                 </div>
                 <h3>Civil & Structural Engineering</h3>
-                <p>Comprehensive engineering solutions for all types of construction projects with advanced BIM technology.</p>
-                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <p>Comprehensive engineering solutions for all types of construction projects with advanced BIM
+                    technology.</p>
+                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i
+                        class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
@@ -98,7 +107,8 @@ get_header(); ?>
                 </div>
                 <h3>Highways & Roadworks</h3>
                 <p>Expert construction of highways, roads, and transportation infrastructure connecting communities.</p>
-                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i
+                        class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
@@ -107,7 +117,8 @@ get_header(); ?>
                 </div>
                 <h3>Residential & Commercial</h3>
                 <p>Modern living and working spaces combining functionality, aesthetics, and sustainability.</p>
-                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i
+                        class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
@@ -115,8 +126,10 @@ get_header(); ?>
                     <i class="fas fa-industry"></i>
                 </div>
                 <h3>Industrial Infrastructure</h3>
-                <p>Specialized construction for industrial facilities ensuring operational efficiency and compliance.</p>
-                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <p>Specialized construction for industrial facilities ensuring operational efficiency and compliance.
+                </p>
+                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i
+                        class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
@@ -125,7 +138,8 @@ get_header(); ?>
                 </div>
                 <h3>Turnkey Solutions</h3>
                 <p>Complete project delivery from concept to completion with single-point responsibility.</p>
-                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i
+                        class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card">
@@ -134,7 +148,8 @@ get_header(); ?>
                 </div>
                 <h3>Urban Infrastructure</h3>
                 <p>Essential infrastructure services supporting urban development and community growth.</p>
-                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                <a href="<?php echo home_url('/services'); ?>" class="service-link">Learn More <i
+                        class="fas fa-arrow-right"></i></a>
             </div>
         </div>
 
@@ -149,7 +164,8 @@ get_header(); ?>
     <div class="container-custom">
         <div class="text-center">
             <h2 class="section-title">Why Choose Aarna Construction</h2>
-            <p class="section-subtitle">We bring together experience, technology, and commitment to deliver exceptional results</p>
+            <p class="section-subtitle">We bring together experience, technology, and commitment to deliver exceptional
+                results</p>
         </div>
 
         <div class="strengths-grid">
@@ -193,7 +209,8 @@ get_header(); ?>
     <div class="container-custom">
         <div class="cta-content text-center">
             <h2>Ready to Start Your Project?</h2>
-            <p>From smart cities to sustainable industrial zones, we bring your vision to life with precision and professionalism.</p>
+            <p>From smart cities to sustainable industrial zones, we bring your vision to life with precision and
+                professionalism.</p>
             <div class="cta-buttons">
                 <a href="<?php echo home_url('/contact'); ?>" class="btn btn-primary btn-lg">Get Free Quote</a>
                 <a href="tel:+91XXXXXXXXXX" class="btn btn-outline-white btn-lg">Call Now</a>

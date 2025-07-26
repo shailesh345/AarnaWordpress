@@ -19,7 +19,7 @@ get_header(); ?>
         <div class="row">
             <div class="col-md-12">
                 <h2 class="section-title">What We Offer</h2>
-                <p class="text-center lead">We offer a broad portfolio of services tailored for today's complex infrastructure needs, delivering excellence across every project phase.</p>
+                <p class="text-center lead">We offer a broad portfolio of services tailored for today's complex infrastructure needs, delivering excellence across every project phase with innovation, precision, and sustainability at the core.</p>
             </div>
         </div>
 

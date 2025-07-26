@@ -10,24 +10,26 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-// Enqueue parent and child theme styles with professional enhancements
+// Enqueue parent and child theme styles
 function aarna_enqueue_styles()
 {
     // Enqueue parent theme stylesheet
     wp_enqueue_style('astra-parent-style', get_template_directory_uri() . '/style.css');
 
-    // Enqueue child theme stylesheet with cache busting
+    // Enqueue child theme stylesheet
     wp_enqueue_style(
         'aarna-child-style',
         get_stylesheet_directory_uri() . '/style.css',
         array('astra-parent-style'),
-        filemtime(get_stylesheet_directory() . '/style.css') // Dynamic versioning
+        wp_get_theme()->get('Version')
     );
 
-    // Enqueue professional Google Fonts
+    // Enqueue Google Fonts for better typography
     wp_enqueue_style(
         'aarna-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap'
+        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap',
+        array(),
+        null
     );
 
     // Enqueue Font Awesome for icons
@@ -37,23 +39,6 @@ function aarna_enqueue_styles()
         array(),
         '6.0.0'
     );
-
-    // Enqueue professional JavaScript enhancements
-    wp_enqueue_script(
-        'aarna-professional-js',
-        get_stylesheet_directory_uri() . '/assets/js/professional-enhancements.js',
-        array('jquery'),
-        filemtime(get_stylesheet_directory() . '/assets/js/professional-enhancements.js'),
-        true
-    );
-
-    // Localize script for AJAX and dynamic content
-    wp_localize_script('aarna-professional-js', 'aarnaAjax', array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-        'nonce' => wp_create_nonce('aarna_nonce'),
-        'siteUrl' => get_site_url(),
-        'themePath' => get_stylesheet_directory_uri()
-    ));
 }
 add_action('wp_enqueue_scripts', 'aarna_enqueue_styles');
 
@@ -279,8 +264,7 @@ function aarna_login_logo()
     <style type="text/css">
         #login h1 a,
         .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri();
-                                    ?>/assets/images/aarna-logo.png);
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/aarna-logo.png);
             height: 80px;
             width: 300px;
             background-size: contain;
@@ -303,147 +287,3 @@ function aarna_login_logo_url_title()
     return 'Aarna Construction - Building India\'s Future';
 }
 add_filter('login_headertext', 'aarna_login_logo_url_title');
-
-// Professional performance optimizations
-function aarna_performance_optimizations()
-{
-    // Remove unnecessary WordPress features
-    remove_action('wp_head', 'wp_generator');
-    remove_action('wp_head', 'wlwmanifest_link');
-    remove_action('wp_head', 'rsd_link');
-    remove_action('wp_head', 'wp_shortlink_wp_head');
-
-    // Remove emoji scripts and styles
-    remove_action('wp_head', 'print_emoji_detection_script', 7);
-    remove_action('admin_print_scripts', 'print_emoji_detection_script');
-    remove_action('wp_print_styles', 'print_emoji_styles');
-    remove_action('admin_print_styles', 'print_emoji_styles');
-
-    // Disable WordPress embeds
-    remove_action('wp_head', 'wp_oembed_add_discovery_links');
-    remove_action('wp_head', 'wp_oembed_add_host_js');
-}
-add_action('init', 'aarna_performance_optimizations');
-
-// Add professional security headers
-function aarna_security_headers()
-{
-    if (!is_admin()) {
-        header('X-Content-Type-Options: nosniff');
-        header('X-Frame-Options: SAMEORIGIN');
-        header('X-XSS-Protection: 1; mode=block');
-        header('Referrer-Policy: strict-origin-when-cross-origin');
-    }
-}
-add_action('send_headers', 'aarna_security_headers');
-
-// Professional AJAX handler for contact form
-function aarna_handle_contact_form()
-{
-    // Verify nonce
-    if (!wp_verify_nonce($_POST['nonce'], 'aarna_nonce')) {
-        wp_die('Security check failed');
-    }
-
-    // Sanitize form data
-    $name = sanitize_text_field($_POST['name']);
-    $email = sanitize_email($_POST['email']);
-    $phone = sanitize_text_field($_POST['phone']);
-    $project_type = sanitize_text_field($_POST['project_type']);
-    $message = sanitize_textarea_field($_POST['message']);
-
-    // Send email
-    $to = get_option('admin_email');
-    $subject = 'New Contact Form Submission - Aarna Construction';
-    $body = "Name: $name\nEmail: $email\nPhone: $phone\nProject Type: $project_type\nMessage: $message";
-    $headers = array('Content-Type: text/html; charset=UTF-8');
-
-    $sent = wp_mail($to, $subject, $body, $headers);
-
-    if ($sent) {
-        wp_send_json_success('Message sent successfully!');
-    } else {
-        wp_send_json_error('Failed to send message. Please try again.');
-    }
-}
-add_action('wp_ajax_aarna_contact_form', 'aarna_handle_contact_form');
-add_action('wp_ajax_nopriv_aarna_contact_form', 'aarna_handle_contact_form');
-
-// Professional breadcrumb function
-function aarna_breadcrumbs()
-{
-    if (!is_front_page()) {
-        echo '<nav class="breadcrumb-nav" aria-label="Breadcrumb">';
-        echo '<ol class="breadcrumb">';
-        echo '<li class="breadcrumb-item"><a href="' . home_url() . '"><i class="fas fa-home"></i> Home</a></li>';
-
-        if (is_page()) {
-            $parent_id = wp_get_post_parent_id(get_the_ID());
-            if ($parent_id) {
-                $parent = get_post($parent_id);
-                echo '<li class="breadcrumb-item"><a href="' . get_permalink($parent) . '">' . get_the_title($parent) . '</a></li>';
-            }
-            echo '<li class="breadcrumb-item active" aria-current="page">' . get_the_title() . '</li>';
-        }
-
-        echo '</ol>';
-        echo '</nav>';
-    }
-}
-
-// Professional image optimization
-function aarna_optimize_images($html, $id, $caption, $title, $align, $url, $size, $alt)
-{
-    // Add loading="lazy" to images for better performance
-    $html = str_replace('<img ', '<img loading="lazy" ', $html);
-    return $html;
-}
-add_filter('image_send_to_editor', 'aarna_optimize_images', 10, 8);
-
-// Professional custom post types (for future expansion)
-function aarna_register_post_types()
-{
-    // Projects post type
-    register_post_type('projects', array(
-        'labels' => array(
-            'name' => 'Projects',
-            'singular_name' => 'Project',
-            'add_new' => 'Add New Project',
-            'add_new_item' => 'Add New Project',
-            'edit_item' => 'Edit Project',
-            'new_item' => 'New Project',
-            'view_item' => 'View Project',
-            'search_items' => 'Search Projects',
-            'not_found' => 'No projects found',
-            'not_found_in_trash' => 'No projects found in trash'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'show_in_rest' => true,
-        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
-        'menu_icon' => 'dashicons-building',
-        'rewrite' => array('slug' => 'projects')
-    ));
-
-    // Testimonials post type
-    register_post_type('testimonials', array(
-        'labels' => array(
-            'name' => 'Testimonials',
-            'singular_name' => 'Testimonial',
-            'add_new' => 'Add New Testimonial',
-            'add_new_item' => 'Add New Testimonial',
-            'edit_item' => 'Edit Testimonial',
-            'new_item' => 'New Testimonial',
-            'view_item' => 'View Testimonial',
-            'search_items' => 'Search Testimonials',
-            'not_found' => 'No testimonials found',
-            'not_found_in_trash' => 'No testimonials found in trash'
-        ),
-        'public' => true,
-        'show_in_rest' => true,
-        'supports' => array('title', 'editor', 'thumbnail'),
-        'menu_icon' => 'dashicons-format-quote',
-        'rewrite' => array('slug' => 'testimonials')
-    ));
-}
-add_action('init', 'aarna_register_post_types');
