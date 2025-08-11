@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Clean Phone LCD Design System */
+.phone-font {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  image-rendering: pixelated;
+}
+
+.old-phone-title {
+  font-family: 'Courier New', monospace;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  image-rendering: pixelated;
+}
+
+.old-phone-terminal {
+  background: #ffffff;
+  color: #000000;
+}
+
+.old-phone-card {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 
+    inset -1px -1px 0 #999999,
+    inset 1px 1px 0 #ffffff;
+}
+
+.old-phone-button {
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 
+    inset -1px -1px 0 #999999,
+    inset 1px 1px 0 #ffffff;
+  transition: all 0.2s ease;
+}
+
+.old-phone-button:hover {
+  box-shadow: 
+    inset 1px 1px 0 #999999,
+    inset -1px -1px 0 #ffffff;
+  transform: translate(1px, 1px);
+}
+
+.old-phone-button:active {
+  box-shadow: 
+    inset 2px 2px 0 #999999;
+  transform: translate(2px, 2px);
+}
+
+/* Simple grid pattern for subtle texture */
+.phone-grid {
+  background-image: 
+    repeating-linear-gradient(90deg, 
+      transparent, 
+      transparent 19px, 
+      rgba(0, 0, 0, 0.05) 19px, 
+      rgba(0, 0, 0, 0.05) 20px),
+    repeating-linear-gradient(0deg, 
+      transparent, 
+      transparent 19px, 
+      rgba(0, 0, 0, 0.05) 19px, 
+      rgba(0, 0, 0, 0.05) 20px);
+}
+
+/* Smooth animations */
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Focus styles */
+:focus-visible { 
+  outline: none;
+  ring: 2px solid #000000;
+  ring-offset: 2px;
+}
+
+/* Scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}

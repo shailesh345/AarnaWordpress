@@ -1,0 +1,1 @@
+Note: TS path alias '@/*' is configured in tsconfig.json. Some editors may show 'Cannot find module' until dependencies are installed and Vite is running.
