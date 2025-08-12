@@ -49,6 +49,14 @@ pre {
   100% { transform: translateX(0); opacity: 1; }
 }
 
+/* Speedometer needle swing animation */
+@keyframes swing {
+  0%, 100% { transform: translateX(-50%) rotate(-45deg); }
+  25% { transform: translateX(-50%) rotate(-15deg); }
+  50% { transform: translateX(-50%) rotate(15deg); }
+  75% { transform: translateX(-50%) rotate(-30deg); }
+}
+
 @keyframes slideInRight {
   0% { transform: translateX(100%); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }

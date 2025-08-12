@@ -5,14 +5,7 @@ import Footer from "./components/Footer";
 import QuickActions from "./components/QuickActions";
 import ScrollTop from "./components/ScrollTop";
 import BootLoader from "./components/BootLoader";
-import {
-  MouseTrailEffect,
-  VintageMouseCursor,
-} from "./components/AdvancedEffects";
-import {
-  VintageNavigationPanel,
-  VintageNotificationSystem,
-} from "./components/VintageNavigation";
+import { VintageNavigationPanel } from "./components/VintageNavigation";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,12 +28,8 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-dvh flex flex-col bg-white cursor-none">
-      {/* Advanced Effects */}
-      <MouseTrailEffect />
-      <VintageMouseCursor />
+    <div className="min-h-dvh flex flex-col bg-white">
       <VintageNavigationPanel />
-      <VintageNotificationSystem />
 
       <Header />
       <main className="flex-1">

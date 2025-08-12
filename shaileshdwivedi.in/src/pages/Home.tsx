@@ -20,22 +20,12 @@ import { CodeRain } from "../components/AdvancedASCII";
 import { AIBinaryMatrix } from "../components/AIMLBackground";
 import {
   VintageTerminal,
-  VintageOscilloscope,
-  VintageRadar,
-  VintageStatusPanel,
+  LLMWorkflowDemo,
+  InternetSpeedChecker,
 } from "../components/VintageInteractive";
-import {
-  HologramDisplay,
-  InteractiveCircuitBoard,
-  VintageDataStream,
-  Rotating3DCube,
-} from "../components/AdvancedInteractive";
-import {
-  VintageComputerInterface,
-  SoundVisualizer,
-  VintageProgressBars,
-  InteractiveNetworkGraph,
-} from "../components/VintageWidgets";
+import { HologramDisplay } from "../components/AdvancedInteractive";
+import { VintageComputerInterface } from "../components/VintageWidgets";
+import { TwoColumnLayout } from "../components/AdvancedEffects";
 
 const Home: React.FC = () => {
   const [sectionsVisible, setSectionsVisible] = useState({
@@ -316,64 +306,39 @@ const Home: React.FC = () => {
       </section>
 
       {/* Advanced Interactive Systems Section */}
-      <section className="py-16 bg-black text-green-400">
+      <section className="py-16 bg-white text-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <HologramDisplay>
-              <h2 className="old-phone-title text-2xl mb-4 text-green-400">
+              <h2 className="old-phone-title text-2xl mb-4 text-black">
                 INTERACTIVE SYSTEMS
               </h2>
-              <p className="phone-font text-sm text-green-300 max-w-2xl mx-auto">
+              <p className="phone-font text-sm text-gray-700 max-w-2xl mx-auto">
                 Advanced vintage-style interfaces demonstrating system
                 capabilities
               </p>
             </HologramDisplay>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            {/* Terminal Interface */}
-            <div className="space-y-4">
-              <VintageTerminal
-                commands={[
-                  "> LOADING PORTFOLIO.SYS",
-                  "> INITIALIZING AI MODULES",
-                  "> NEURAL NETWORKS ONLINE",
-                  "> MACHINE LEARNING READY",
-                  "> SYSTEM STATUS: OPTIMAL",
-                  "> WELCOME TO THE MATRIX",
-                ]}
-              />
-              <VintageStatusPanel />
-            </div>
-
-            {/* Visual Systems */}
-            <div className="space-y-4">
-              <VintageOscilloscope />
-              <VintageRadar />
-            </div>
-
-            {/* Interactive Elements */}
-            <div className="space-y-4">
-              <InteractiveCircuitBoard />
-              <div className="flex justify-center">
-                <Rotating3DCube />
+          <TwoColumnLayout
+            leftContent={
+              <div className="space-y-6">
+                {/* Internet Speed Checker */}
+                <div className="space-y-4">
+                  <InternetSpeedChecker />
+                </div>
               </div>
-            </div>
-          </div>
+            }
+            rightContent={
+              <div className="space-y-6">
+                {/* LLM Workflow Demo */}
+                <LLMWorkflowDemo />
+              </div>
+            }
+            className="mb-8"
+          />
 
-          {/* Advanced Widgets Row */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-            <VintageDataStream />
-            <SoundVisualizer />
-          </div>
-
-          {/* Full Width Advanced Systems */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <VintageProgressBars />
-            <InteractiveNetworkGraph />
-          </div>
-
-          {/* System Interface */}
+          {/* System Interface - Full Width */}
           <div className="mt-8">
             <VintageComputerInterface />
           </div>

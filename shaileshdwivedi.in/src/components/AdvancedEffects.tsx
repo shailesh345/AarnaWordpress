@@ -7,18 +7,34 @@ interface TrailPoint {
   timestamp: number;
 }
 
+// Two-column layout wrapper component
+export const TwoColumnLayout: React.FC<{
+  leftContent: React.ReactNode;
+  rightContent: React.ReactNode;
+  className?: string;
+}> = ({ leftContent, rightContent, className = "" }) => {
+  return (
+    <div className={`grid grid-cols-1 md:grid-cols-2 gap-6 ${className}`}>
+      <div className="space-y-4">{leftContent}</div>
+      <div className="space-y-4">{rightContent}</div>
+    </div>
+  );
+};
+
 export const MouseTrailEffect: React.FC = () => {
   const [trail, setTrail] = useState<TrailPoint[]>([]);
 
   useEffect(() => {
     let animationFrame: number;
+    let idCounter = 0; // Add a counter for unique IDs
 
     const handleMouseMove = (e: MouseEvent) => {
+      const now = Date.now();
       const newPoint: TrailPoint = {
         x: e.clientX,
         y: e.clientY,
-        id: Date.now(),
-        timestamp: Date.now(),
+        id: now + ++idCounter, // Use timestamp + counter for unique ID
+        timestamp: now,
       };
 
       setTrail((prev) => [...prev.slice(-20), newPoint]);
@@ -189,6 +205,66 @@ export const BackgroundParticleField: React.FC = () => {
           }}
         />
       ))}
+    </div>
+  );
+};
+
+// Demo component showing effects in two-column layout
+export const EffectsDemo: React.FC = () => {
+  return (
+    <div className="p-6 min-h-screen bg-gray-50">
+      <h1 className="text-3xl font-bold text-center mb-8">
+        Advanced Effects Demo
+      </h1>
+
+      <TwoColumnLayout
+        leftContent={
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Mouse Trail Effect</h2>
+            <div className="relative h-64 bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+              <p className="p-4 text-gray-600">
+                Move your mouse around to see the trail effect
+              </p>
+              <MouseTrailEffect />
+            </div>
+          </div>
+        }
+        rightContent={
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Vintage Cursor</h2>
+            <div className="relative h-64 bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+              <p className="p-4 text-gray-600">
+                Custom vintage-style cursor with click effects
+              </p>
+              <VintageMouseCursor />
+            </div>
+          </div>
+        }
+        className="mb-8"
+      />
+
+      <TwoColumnLayout
+        leftContent={
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Particle Field</h2>
+            <div className="relative h-64 bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+              <p className="p-4 text-gray-600">Animated background particles</p>
+              <BackgroundParticleField />
+            </div>
+          </div>
+        }
+        rightContent={
+          <div>
+            <h2 className="text-xl font-semibold mb-4">Combined Effects</h2>
+            <div className="relative h-64 bg-white border-2 border-gray-300 rounded-lg overflow-hidden">
+              <p className="p-4 text-gray-600">All effects working together</p>
+              <MouseTrailEffect />
+              <VintageMouseCursor />
+              <BackgroundParticleField />
+            </div>
+          </div>
+        }
+      />
     </div>
   );
 };
